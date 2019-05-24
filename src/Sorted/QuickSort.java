@@ -5,8 +5,47 @@ package Sorted;
  * @param <T> debe extender a comparable para poder comparar los elementos
  */
 public class QuickSort <T extends Comparable<T>>{
-
-    /**
+  public void QuickSort(int[] ordenar){
+    QuickSort(ordenar,0,ordenar.length-1);
+}
+  public void QuickSort(int[] ordenar,int p , int r){
+    int j = 0;
+    if (p<r) {
+        j = particion(ordenar,p ,r);
+        QuickSort(ordenar, p, j-1);
+        QuickSort(ordenar, j+1, r);
+    }  
+}
+  public int particion(int[] ordenar,int p , int r){
+    
+    int piv = ordenar[p];
+    int i = p;
+    int j = r+1;
+    while(true){
+        // encuentra mayor
+      while(ordenar[++i]<piv){
+          if(i==r) break;
+      }
+        // encuantra menor 
+      while(ordenar[--j]>piv){
+          if(j==p) break;
+      }
+      if(i>=j) break;
+      Swap(ordenar,i,j);
+    }
+    Swap(ordenar,p,j);
+    
+    return j;
+}
+ private void Swap(int[] ordenar,int i , int j){
+   
+    int aux = ordenar[i];
+    ordenar[i]=ordenar[j];
+    ordenar[j]=aux;
+}
+  
+  /************************************************************************/
+  /**
      *
      * @param ordenar Arreglo que se quiere ordenar
      */
@@ -20,7 +59,7 @@ public class QuickSort <T extends Comparable<T>>{
  * @param r ultimo elemento de el arreglo a oredenar
  */
 public void QuickSort(T[] ordenar,int p , int r){
-    Show(ordenar);
+    //Show(ordenar);
     int j = 0;
     if (p<r) {
         j = particion(ordenar,p ,r);
