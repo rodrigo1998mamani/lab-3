@@ -23,11 +23,11 @@ public class QuickSort <T extends Comparable<T>>{
     int j = r+1;
     while(true){
         // encuentra mayor
-      while(ordenar[++i]<piv){
+      while(ordenar[++i] <= piv){
           if(i==r) break;
       }
         // encuantra menor 
-      while(ordenar[--j]>piv){
+      while(ordenar[--j] >= piv){
           if(j==p) break;
       }
       if(i>=j) break;
@@ -42,6 +42,12 @@ public class QuickSort <T extends Comparable<T>>{
     int aux = ordenar[i];
     ordenar[i]=ordenar[j];
     ordenar[j]=aux;
+}
+ public void Show(int[] ordenar){
+    for(int i = 0 ; i<ordenar.length;i++){
+        System.out.print(ordenar[i]+"-");
+    }
+    System.out.println();
 }
   
   /************************************************************************/
