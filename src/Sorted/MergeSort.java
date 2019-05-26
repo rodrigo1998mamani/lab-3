@@ -23,7 +23,7 @@ public class MergeSort {
      *
      */
     private void Sort(int[] ordenar, int[] aux, int bot, int top) {
-        // base case
+        // caso base
         if (top - bot > 1) {
             int mid = bot + (top - bot) / 2;
             Sort(ordenar, aux, bot, mid);
